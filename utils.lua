@@ -45,7 +45,7 @@ function getInfo (interface, interface_type)
     return {SG_generation, SG_type, SG_energy, SG_address}
 end
 
-function dial(targetAddress, interface, interface_type)
+function dialAddress(targetAddress, interface, interface_type)
     if (targetAddress) then
         
         local addressLength = #targetAddress
@@ -81,4 +81,5 @@ end
 return {stringToTable = stringToTable,
 tableToString = tableToString,
 detectInterface = detectInterface,
-getInfo = getInfo}
+getInfo = getInfo,
+dialAddress = dialAddress}
