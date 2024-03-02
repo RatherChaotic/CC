@@ -18,7 +18,7 @@ end
 ---@param o1 any|table First object to compare
 ---@param o2 any|table Second object to compare
 ---@param ignore_mt boolean True to ignore metatables (a recursive function to tests tables inside tables)
-function tablEquals(o1, o2, ignore_mt)
+function tableEquals(o1, o2, ignore_mt)
     if o1 == o2 then return true end
     local o1Type = type(o1)
     local o2Type = type(o2)
@@ -37,7 +37,7 @@ function tablEquals(o1, o2, ignore_mt)
 
     for key1, value1 in pairs(o1) do
         local value2 = o2[key1]
-        if value2 == nil or equals(value1, value2, ignore_mt) == false then
+        if value2 == nil or tableEquals(value1, value2, ignore_mt) == false then
             return false
         end
         keySet[key1] = true
