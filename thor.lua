@@ -15,6 +15,7 @@ function checkCommand(parseMessage, username)
       if (parseMessage[2] == "update") then
          interface, interface_type = utils.detectInterface()
          info = utils.getInfo(interface, interface_type)
+         list = textutils.unserialiseJSON(http.get("https://raw.githubusercontent.com/RatherChaotic/CC/main/list.json").readAll())
       elseif (parseMessage[2] == "debug") then
          debug(parseMessage, username)
       elseif (parseMessage[2] == "dial") then
