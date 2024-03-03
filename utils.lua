@@ -1,18 +1,26 @@
 --GENERAL UTILS--
 
 function stringToTable(inputstr, sep)
-    if sep == nil then
-        sep = "%s"
+    if (inputstr ~= nil) then
+        if sep == nil then
+            sep = "%s"
+        end
+        local t = {}
+        for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+            table.insert(t, str)
+        end
+        return t
+    else
+        return nil
     end
-    local t = {}
-    for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
-        table.insert(t, str)
-    end
-    return t
 end
 
 function tableToString(t)
-    return table.concat(t, '\n')
+    if (type(t) == "table") then
+        return table.concat(t, '\n')
+    else
+        return nil
+    end
 end
 
 ---@param o1 any|table First object to compare
