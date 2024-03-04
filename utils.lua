@@ -57,6 +57,16 @@ function tableEquals(o1, o2, ignore_mt)
     return true
 end
 
+function tableFind(table, object)
+    local found, foundKey = false, nil
+    for k,v in pairs(table) do
+        if (v == object) then
+            found = true
+            foundKey = k
+        end
+    end
+    return {found, foundKey}
+end
 
 --STARGATE RELATED UTILS--
 
@@ -130,5 +140,6 @@ return {
     getInfo = getInfo,
     dialAddress = dialAddress,
     checkPlayer = checkPlayer,
-    tableEquals = tableEquals
+    tableEquals = tableEquals,
+    tableFind = tableFind
 }
