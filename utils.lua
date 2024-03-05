@@ -86,9 +86,15 @@ function detectInterface()
 end
 
 function getInfo(interface, interface_type)
-    local SG_generation = interface.getStargateGeneration()
-    local SG_type = interface.getStargateType()
-    local SG_energy = interface.getStargateEnergy()
+    if (interface != nil) then
+        local SG_generation = interface.getStargateGeneration()
+        local SG_type = interface.getStargateType()
+        local SG_energy = interface.getStargateEnergy()
+    else 
+        local SG_generation = nil
+        local SG_type = nil
+        local SG_energy = nil
+    end
     local SG_address = nil
     if (interface_type == "advanced") then
         SG_address = interface.getLocalAddress()
